@@ -1,7 +1,6 @@
 baseURL = 'https://pastekitlab.github.io/'
 languageCode = 'zh-cn'
 title = '我的博客'
-theme = ''
 
 enableRobotsTXT = true
 paginate = 6
