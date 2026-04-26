@@ -4,7 +4,9 @@ title = '我的博客'
 theme = 'PaperMod'
 
 enableRobotsTXT = true
-paginate = 10
+
+[pagination]
+  pagerSize = 10
 
 [params]
   description = '一个 Hugo 高级博客'
