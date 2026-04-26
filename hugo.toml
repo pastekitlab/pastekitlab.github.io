@@ -1,12 +1,25 @@
 baseURL = 'https://pastekitlab.github.io/'
 languageCode = 'zh-cn'
 title = '我的博客'
-theme = 'ananke'
+theme = ''
+
+enableRobotsTXT = true
+paginate = 6
 
 [params]
-  description = '个人博客网站'
-  author = 'Your Name'
-  email = 'your@email.com'
+  description = '一个 Hugo 高级博客'
+  author = '你的名字'
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[outputs]
+  home = ['HTML', 'JSON']
 
 [menu]
   [[menu.main]]
