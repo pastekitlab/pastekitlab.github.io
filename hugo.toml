@@ -1,0 +1,22 @@
+baseURL = 'https://blog.yourdomain.com/'
+languageCode = 'zh-cn'
+title = '我的博客'
+theme = 'ananke'
+
+[params]
+  description = '个人博客网站'
+  author = 'Your Name'
+  email = 'your@email.com'
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 10
+  
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 20
