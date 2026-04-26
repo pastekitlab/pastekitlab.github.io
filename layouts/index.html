@@ -1,0 +1,191 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Site.Title }}</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+    }
+
+    /* 左侧导航 */
+    .sidebar {
+      width: 220px;
+      background: #fff;
+      border-right: 1px solid #eee;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 6px 0;
+      color: #333;
+      font-size: 14px;
+    }
+
+    /* 主内容 */
+    .main {
+      margin-left: 240px;
+      padding: 30px;
+      flex: 1;
+    }
+
+    /* 顶部 */
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .search-box {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    /* 卡片布局 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .meta {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .tags {
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eee;
+      padding: 2px 8px;
+      margin: 2px;
+      font-size: 12px;
+      border-radius: 6px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 800px) {
+      .sidebar {
+        display: none;
+      }
+      .main {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 左侧分类 -->
+<div class="sidebar">
+  <h2>分类</h2>
+  {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+    <a href="{{ "/categories/" | relLangURL }}{{ $name }}">
+      {{ $name }} ({{ len $taxonomy }})
+    </a>
+  {{ end }}
+
+  <h2>标签</h2>
+  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    <a href="{{ "/tags/" | relLangURL }}{{ $name }}">
+      # {{ $name }}
+    </a>
+  {{ end }}
+</div>
+
+<!-- 主内容 -->
+<div class="main">
+
+  <!-- 顶部 -->
+  <div class="header">
+    <h1>{{ .Site.Title }}</h1>
+    <p>{{ .Site.Params.description }}</p>
+
+    <!-- 搜索框（前端搜索入口） -->
+    <input id="search" class="search-box" placeholder="搜索文章..." />
+  </div>
+
+  <!-- 卡片文章 -->
+  <div class="grid" id="post-list">
+    {{ range .Site.RegularPages.ByDate.Reverse }}
+      <div class="card" data-title="{{ .Title }}">
+        <h3>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h3>
+
+        <div class="meta">
+          {{ .Date.Format "2006-01-02" }}
+        </div>
+
+        <p>{{ .Summary }}</p>
+
+        <div class="tags">
+          {{ range .Params.tags }}
+            <span class="tag"># {{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+</div>
+
+<!-- 简单搜索脚本（无需库版本） -->
+<script>
+  const input = document.getElementById("search");
+  const cards = document.querySelectorAll(".card");
+
+  input.addEventListener("input", function() {
+    const keyword = this.value.toLowerCase();
+
+    cards.forEach(card => {
+      const title = card.dataset.title.toLowerCase();
+      if (title.includes(keyword)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
+{{ end }}
