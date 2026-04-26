@@ -1,24 +1,37 @@
 baseURL = 'https://pastekitlab.github.io/'
 languageCode = 'zh-cn'
 title = '我的博客'
+theme = 'PaperMod'
 
 enableRobotsTXT = true
-paginate = 6
+paginate = 10
 
 [params]
   description = '一个 Hugo 高级博客'
   author = '你的名字'
+  defaultTheme = 'auto'
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  
+  [params.homeInfoParams]
+    Title = "欢迎来到我的博客"
+    Content = "这里分享技术文章和心得"
 
-[sitemap]
-  changefreq = 'weekly'
-  priority = 0.5
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/yourusername"
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
 
 [taxonomies]
   tag = 'tags'
   category = 'categories'
-
-[outputs]
-  home = ['HTML', 'JSON']
 
 [menu]
   [[menu.main]]
@@ -28,7 +41,19 @@ paginate = 6
     weight = 10
   
   [[menu.main]]
+    identifier = "archives"
+    name = "归档"
+    url = "/archives/"
+    weight = 20
+    
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/search/"
+    weight = 30
+    
+  [[menu.main]]
     identifier = "about"
     name = "关于"
     url = "/about/"
-    weight = 20
+    weight = 40
