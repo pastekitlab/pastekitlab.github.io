@@ -6,6 +6,7 @@ tags: ["Doc-Forge", "AI", "React"]
 categories: ["Tech"]
 ShowToc: true
 TocOpen: true
+ShowMermaid: true
 ---
 
 # Doc-Forge：智能化技术文档创作助手
@@ -51,3 +52,16 @@ TocOpen: true
 ---
 
 Doc-Forge 致力于让技术写作变得像写代码一样严谨且高效，是每一位开发者构建知识库的得力助手。
+
+## 📊 架构图示例 (Mermaid)
+
+```mermaid
+graph TD
+    A[用户输入目标] --> B(智能体 Pipeline)
+    B --> C{大纲生成器}
+    C --> D[章节结构]
+    D --> E{内容撰写者}
+    E --> F[Markdown 内容]
+    F --> G[Git 同步引擎]
+    G --> H[GitHub/Gitee]
+```

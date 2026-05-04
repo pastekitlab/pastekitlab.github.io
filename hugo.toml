@@ -150,4 +150,14 @@ enableRobotsTXT = true
   tag = 'tags'
   category = 'categories'
 
-
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      attribute = { block = true }
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6

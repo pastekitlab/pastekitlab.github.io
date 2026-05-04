@@ -6,6 +6,7 @@ tags: ["Doc-Forge", "AI", "React"]
 categories: ["Tech"]
 ShowToc: true
 TocOpen: true
+ShowMermaid: true
 ---
 
 # Doc-Forge: The Intelligent Technical Writing Assistant
@@ -51,3 +52,16 @@ Designed specifically for static blogs like Hugo/Jekyll, it allows direct config
 ---
 
 Doc-Forge is dedicated to making technical writing as rigorous and efficient as coding, serving as a powerful assistant for every developer building their knowledge base.
+
+## 📊 Architecture Diagram (Mermaid)
+
+```mermaid
+graph TD
+    A[User Input Goal] --> B(Agent Pipeline)
+    B --> C{Outline Generator}
+    C --> D[Chapter Structure]
+    D --> E{Content Writer}
+    E --> F[Markdown Content]
+    F --> G[Git Sync Engine]
+    G --> H[GitHub/Gitee]
+```
