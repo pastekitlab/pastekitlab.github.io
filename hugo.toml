@@ -1,6 +1,6 @@
 baseURL = 'https://pastekitlab.github.io/'
 defaultContentLanguage = 'zh'
-defaultContentLanguageInSubdir = true
+defaultContentLanguageInSubdir = false
 theme = 'PaperMod'
 
 enableRobotsTXT = true
