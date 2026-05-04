@@ -1,16 +1,127 @@
 baseURL = 'https://pastekitlab.github.io/'
-languageCode = 'zh-cn'
-title = '我的博客'
+defaultContentLanguage = 'zh'
+defaultContentLanguageInSubdir = true
 theme = 'PaperMod'
 
 enableRobotsTXT = true
+
+[languages]
+  [languages.zh]
+    languageCode = 'zh-cn'
+    languageName = '中文'
+    weight = 1
+    title = '我的博客'
+    
+    [languages.zh.params]
+      description = '一个 Hugo 高级博客'
+      author = '你的名字'
+      
+      [[languages.zh.params.socialIcons]]
+        name = "github"
+        url = "https://github.com/yourusername"
+      
+      [languages.zh.params.homeInfoParams]
+        Title = "欢迎来到我的博客"
+        Content = "这里分享技术文章和心得"
+    
+    [[languages.zh.menu.main]]
+      identifier = "posts"
+      name = "文章"
+      url = "/posts/"
+      weight = 10
+    
+    [[languages.zh.menu.main]]
+      identifier = "tech"
+      name = "技术"
+      url = "/posts/tech/"
+      weight = 11
+      parent = "posts"
+    
+    [[languages.zh.menu.main]]
+      identifier = "life"
+      name = "生活"
+      url = "/posts/life/"
+      weight = 12
+      parent = "posts"
+    
+    [[languages.zh.menu.main]]
+      identifier = "archives"
+      name = "归档"
+      url = "/archives/"
+      weight = 20
+      
+    [[languages.zh.menu.main]]
+      identifier = "search"
+      name = "搜索"
+      url = "/search/"
+      weight = 30
+      
+    [[languages.zh.menu.main]]
+      identifier = "about"
+      name = "关于"
+      url = "/about/"
+      weight = 40
+
+  [languages.en]
+    languageCode = 'en-us'
+    languageName = 'English'
+    weight = 2
+    title = 'My Blog'
+    
+    [languages.en.params]
+      description = 'An advanced Hugo blog'
+      author = 'Your Name'
+      
+      [[languages.en.params.socialIcons]]
+        name = "github"
+        url = "https://github.com/yourusername"
+      
+      [languages.en.params.homeInfoParams]
+        Title = "Welcome to My Blog"
+        Content = "Sharing technical articles and thoughts"
+    
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      name = "Posts"
+      url = "/posts/"
+      weight = 10
+    
+    [[languages.en.menu.main]]
+      identifier = "tech"
+      name = "Tech"
+      url = "/posts/tech/"
+      weight = 11
+      parent = "posts"
+    
+    [[languages.en.menu.main]]
+      identifier = "life"
+      name = "Life"
+      url = "/posts/life/"
+      weight = 12
+      parent = "posts"
+    
+    [[languages.en.menu.main]]
+      identifier = "archives"
+      name = "Archives"
+      url = "/archives/"
+      weight = 20
+      
+    [[languages.en.menu.main]]
+      identifier = "search"
+      name = "Search"
+      url = "/search/"
+      weight = 30
+      
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "About"
+      url = "/about/"
+      weight = 40
 
 [pagination]
   pagerSize = 10
 
 [params]
-  description = '一个 Hugo 高级博客'
-  author = '你的名字'
   defaultTheme = 'auto'
   ShowReadingTime = true
   ShowShareButtons = false
@@ -19,14 +130,6 @@ enableRobotsTXT = true
   ShowCodeCopyButtons = true
   ShowRssButtonInSectionTermList = true
   UseHugoToc = true
-  
-  [params.homeInfoParams]
-    Title = "欢迎来到我的博客"
-    Content = "这里分享技术文章和心得"
-
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/yourusername"
 
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
@@ -35,27 +138,4 @@ enableRobotsTXT = true
   tag = 'tags'
   category = 'categories'
 
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    name = "文章"
-    url = "/posts/"
-    weight = 10
-  
-  [[menu.main]]
-    identifier = "archives"
-    name = "归档"
-    url = "/archives/"
-    weight = 20
-    
-  [[menu.main]]
-    identifier = "search"
-    name = "搜索"
-    url = "/search/"
-    weight = 30
-    
-  [[menu.main]]
-    identifier = "about"
-    name = "关于"
-    url = "/about/"
-    weight = 40
+
