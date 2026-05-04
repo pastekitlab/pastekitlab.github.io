@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // 检查页面中是否有 mermaid 代码块
+    const mermaidBlocks = document.querySelectorAll('code.language-mermaid');
+    if (mermaidBlocks.length === 0) {
+      return; // 没有 mermaid 代码块，不执行
+    }
+    
+    // 初始化 mermaid
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: document.querySelector("html").dataset.theme === "dark" ? "dark" : "default",
+      securityLevel: 'loose',
+    });
+    
+    // 处理所有 mermaid 代码块
+    mermaidBlocks.forEach((block, index) => {
+      const parentPre = block.parentElement;
+      const container = document.createElement('div');
+      container.className = 'mermaid';
+      container.id = 'mermaid-' + index;
+      container.textContent = block.textContent;
+      parentPre.replaceWith(container);
+    });
+    
+    // 渲染所有 mermaid 图表
+    mermaid.run();
+  });
+</script>
