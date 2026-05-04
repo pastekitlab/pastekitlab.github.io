@@ -1,52 +1,53 @@
 ---
-title: "Introduction to PlanForge"
+title: "Introduction to Doc-Forge: AI-Powered Structured Document Engine"
 date: 2026-05-04
 draft: false
-tags: ["PlanForge", "Project"]
+tags: ["Doc-Forge", "AI", "React"]
 categories: ["Tech"]
 ShowToc: true
 TocOpen: true
 ---
 
-# PlanForge: The Intelligent Developer Toolkit
+# Doc-Forge: The Intelligent Technical Writing Assistant
 
 ## 🧠 Core Philosophy
 
-PlanForge (formerly PasteKitLab) is a Chrome extension designed specifically for developers. Its core philosophy is: **Paste anything. We figure out the rest.**
+**Doc-Forge** is an AI-assisted writing tool built on the Chrome Extension architecture. Its core philosophy is: **Transform unstructured ideas into logically rigorous professional documents**.
 
-While traditional developer tools follow a "Choose tool → Paste content → Process" workflow, PlanForge flips this model: **Paste content → PlanForge automatically selects the tool for you**. This small change results in a massive productivity boost.
+While traditional editors simply record text, Doc-Forge deeply participates in the creation process through its **Agent Pipeline**: from outline planning and content filling to multilingual polishing, achieving intelligent assistance throughout the entire workflow.
 
-## ✨ Why Choose PlanForge?
+## ✨ Why Choose Doc-Forge?
 
-During development, we often find ourselves switching between multiple tool websites: JSON formatting, Base64 decoding, Cron expression parsing, DNS lookups, and more. PlanForge integrates all these tools into one place and uses an **Intelligent Content Detection Engine** to automatically recognize the type of content you paste, instantly displaying the corresponding utility.
+*   **Structure First**: Enforces a tree-like hierarchy (H1-H4) for document management, ensuring clear logic in technical solutions.
+*   **Agent Collaboration**: Supports custom AI workflows where different Prompts collaborate to complete complex tasks.
+*   **Localization & Privacy**: Data is stored locally in `chrome.storage`, and API Keys are encrypted to ensure information security.
+*   **Multi-platform Sync**: Built-in Git sync engine supports one-click push to GitHub, Gitee, GitLab, and other platforms.
 
-*   **No Tab Switching**: All tools are integrated into a single extension.
-*   **No Guessing**: Automatically identifies content types.
-*   **Ctrl + V → Done**: A minimalist workflow.
+## 🚀 Key Features
 
-## 🚀 Key Feature: Auto-Detection Engine
+### 1. Intelligent Outline Generation
+Simply input a goal (e.g., "Write a distributed lock implementation plan"), and the AI will automatically generate a detailed outline with multi-level chapters.
 
-PlanForge analyzes your input and automatically activates the correct component:
+### 2. Three-Column Creation Interface
+*   **Left Navigation**: Displays the document's tree structure in real-time, supporting drag-and-drop sorting and folding.
+*   **Middle Editor**: Supports switching between Markdown source code and real-time preview, with built-in Token consumption statistics.
+*   **Right AI Panel**: Provides quick commands like "Optimize," "Simplify," and "Expand," offering instant AI feedback.
 
-| What you paste | What PlanForge does |
-| :--- | :--- |
-| `0 0 * * *` | Shows next 5 Cron execution times |
-| `example.com` | DNS lookup (A / AAAA / CNAME) |
-| `{ "a": 1 }` | JSON formatter & error locator |
-| `MTIzNA==` | Auto-detects Base64 and decodes |
-| `192.168.1.0/24` | Subnet calculator |
-| `8.8.8.8` | IP information lookup |
-| `1700000000` | Timestamp ⇄ Date conversion |
-| Encoded text | Smart decode/encode panel |
+### 3. Powerful Configuration Center
+*   **Provider Config**: Supports mainstream LLM providers like Alibaba Cloud DashScope, OpenAI, DeepSeek, Claude, and Kimi.
+*   **Prompt Engineering**: Allows users to customize Role definitions and Task descriptions to create their own exclusive writing experts.
+*   **Agent Orchestration**: Chains multiple Prompts into a Pipeline for automated step-by-step execution.
+
+### 4. Blog Metadata Management
+Designed specifically for static blogs like Hugo/Jekyll, it allows direct configuration of `categories`, `tags`, `description`, and draft status within the editor.
 
 ## 🛠 Tech Stack
 
 *   **Chrome Extension (Manifest V3)**
-*   **React + TypeScript**
-*   **DNS over HTTPS APIs**
-*   **cron-parser**
-*   **Pure Client-side Logic**: No backend server required, ensuring data privacy and security.
+*   **React + Lucide Icons**
+*   **Local Storage & Encryption**
+*   **Markdown Rendering Engine**
 
 ---
 
-PlanForge is more than just a collection of tools; it is a **Content Detection Engine** designed to be the only developer tool you need to open when you're not sure which tool you need.
+Doc-Forge is dedicated to making technical writing as rigorous and efficient as coding, serving as a powerful assistant for every developer building their knowledge base.

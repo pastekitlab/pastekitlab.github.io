@@ -1,74 +1,66 @@
 ---
-title: "PlanForge User Guide"
+title: "Doc-Forge User Guide: From Beginner to Master"
 date: 2026-05-04
 draft: false
-tags: ["PlanForge", "Tutorial"]
+tags: ["Doc-Forge", "Tutorial"]
 categories: ["Tech"]
 ShowToc: true
 TocOpen: true
 ---
 
-# PlanForge User Guide
+# Doc-Forge User Guide
 
-## 📦 Installation & Setup
+## 📦 Installation & Configuration
 
-### Development Environment Installation
+### 1. Load the Extension
+*   Enter `chrome://extensions/` in your Chrome browser's address bar.
+*   Enable "Developer mode" in the top right corner.
+*   Click "Load unpacked" and select the built folder of the `doc-forge` project.
 
-1.  **Clone the Repository**:
-    ```bash
-    git clone https://github.com/pastekitlab/pastekitlab.git
-    cd pastekitlab
-    ```
-2.  **Install Dependencies and Build**:
-    ```bash
-    npm install
-    npm run build
-    ```
-3.  **Load the Extension**:
-    *   Enter `chrome://extensions/` in your Chrome browser's address bar.
-    *   Enable "Developer mode" in the top right corner.
-    *   Click "Load unpacked" and select the `dist` folder in the project root directory.
+### 2. Configure LLM Providers
+For first-time use, you need to configure an AI provider:
+1.  Go to **Settings** -> **LLM Providers**.
+2.  Select a provider (e.g., Alibaba Cloud DashScope, DeepSeek, or OpenAI).
+3.  Enter your API Key (the system will encrypt it automatically).
+4.  Set it as "Default" for quick access.
 
-### HTTPS Development Environment
+### 3. Customize Prompts & Agents
+*   **Prompt Config**: You can modify the role definitions and task descriptions for the default "Outline Generator" or "Content Writer".
+*   **Agent Orchestration**: In the Agent configuration panel, you can create a new agent and chain multiple Prompts into a Pipeline for more complex automated writing workflows.
 
-This project includes a complete HTTPS development environment for testing secure connections and certificate handling:
+## ✍️ Detailed Creation Workflow
 
-```bash
-# 1. Set up local SSL certificates (first time only)
-./scripts/setup-local-ssl.sh
+### Step 1: Generate Solution Outline
+1.  Click **"New Solution"** in the left sidebar.
+2.  Enter your writing goal in the pop-up dialog (e.g., "Write a deep-dive article on Kubernetes architecture").
+3.  Select your configured agent and click Generate. The AI will automatically plan a multi-level directory structure (H1-H4) for you.
 
-# 2. Start the HTTPS test environment
-./start-https-test.sh
+### Step 2: Edit and Fill Content
+*   **Left Navigation**: Click any chapter title to automatically scroll the editor to that position. Double-click a title to rename it.
+*   **Middle Editor Area**:
+    *   **Preview Mode**: View the rendered Markdown effect.
+    *   **Edit Mode**: Modify the source code directly. The top bar displays real-time word count and Token consumption statistics.
+*   **Right AI Panel**:
+    *   Select a paragraph and click "Optimize" to have the AI polish the writing.
+    *   Click "Expand" to let the AI add more technical details.
+    *   Click "Simplify" to remove redundant descriptions.
 
-# 3. Visit https://localhost:8443
-```
+### Step 3: Manage Blog Metadata
+If you are a Hugo user, you can click the **"Blog Meta"** card at the top of the left sidebar:
+*   Fill in a short description (`description`) for the article.
+*   Set categories (`categories`) and tags (`tags`), separated by commas.
+*   Check "Draft" status to control publication.
 
-## 🧩 Built-in Components Explained
+## 🔄 Git Sync & Publishing
 
-### 🕒 Cron Viewer
-*   **Function**: Parses cron expressions and shows the next 5 execution times.
-*   **Usage**: Simply paste an expression like `0 0 * * *`.
+Doc-Forge has a powerful built-in Git sync feature:
+1.  Go to **Settings** -> **Git Sync Config**.
+2.  Add your repository URL (supports GitHub, Gitee, GitLab, etc.).
+3.  Configure the branch (e.g., `main`) and sync directory (e.g., `content/posts`).
+4.  After editing, click the sync button to automatically push the document to your remote repository.
 
-### 🌐 DNS Resolver
-*   **Function**: Automatically detects domains and resolves A / AAAA / CNAME records via DNS over HTTPS.
-*   **Usage**: Paste a domain name (e.g., `example.com`).
+## 💡 Advanced Tips
 
-### 🔐 Encode / Decode Lab
-*   **Supported Formats**: Base64, URL Encode, Hex, Unicode, ASCII Bytes, UTF-8 Bytes.
-*   **Smart Logic**: If the content is encoded, it will automatically attempt to decode it; otherwise, it defaults to Base64 encoding.
-
-### 🧾 JSON Tool
-*   **Function**: Format or Minify JSON.
-*   **Error Location**: Provides a smart error pointer that displays characters around the error location for quick debugging.
-
-### 🌍 IP & Subnet Tool
-*   **Function**: Query detailed IP information, get your public IP, and perform CIDR subnet calculations (start IP, end IP, host count).
-
-### ⏱ Timestamp Tool
-*   **Function**: Automatically detects timestamps or date strings and performs bidirectional conversion, while also displaying the current time.
-
-## 💡 Best Practices
-
-*   **One-Click Paste**: After copying content from anywhere, simply paste it into the extension's input box to trigger detection.
-*   **History Panel**: (Coming soon) Use the history panel to review previous conversion results.
-*   **Privacy Protection**: All processing is done locally on the client side; no data is uploaded to any server.
+*   **Token Monitoring**: Keep an eye on the top statistics bar to manage your API usage costs.
+*   **Full Text Preview**: In the AI suggestion panel, click "View Full Text" to see the full-screen view of long text generated by the AI.
+*   **Local Privacy**: All document content and configurations are saved locally in `chrome.storage`, ensuring your technical solutions remain secure.
