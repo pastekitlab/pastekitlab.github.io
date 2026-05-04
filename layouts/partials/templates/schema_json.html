@@ -35,7 +35,7 @@
   {{- range $index, $element := $bc_list }}
 
     {{- $scratch.Add "path" (printf "%s/" $element ) | safeJS }}
-    {{- $bc_pg := site.GetPage (printf "/%s%s" .Lang ($scratch.Get "path")) -}}
+    {{- $bc_pg := site.GetPage (printf "/%s%s" $.Lang ($scratch.Get "path")) -}}
 
     {{- if (and ($bc_pg) (gt (len . ) 0))}}
     {{- if (and $index)}}, {{end }}
